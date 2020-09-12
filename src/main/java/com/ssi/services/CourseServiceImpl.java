@@ -33,6 +33,10 @@ public class CourseServiceImpl implements CourseService {
 	public Course updateCourse(Course course) {
 		return dao.updateCourse(course);
 	}
+	public List<Course> getCoursesInFeesRange(int low, int high) {
+		// TODO Auto-generated method stub
+		return dao.getCourseInFeesRange(low, high);
+	}
 	
 	
 	

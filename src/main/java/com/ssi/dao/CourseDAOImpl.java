@@ -6,6 +6,8 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -16,6 +18,17 @@ public class CourseDAOImpl implements CourseDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+
+
+	public List<Course> getCourseInFeesRange(int low, int high) {
+		Session session = sessionFactory.openSession();
+		Criteria criteria = session.createCriteria(Course.class);
+		Criterion crt=Restrictions.between("fees", low, high);
+		criteria.add(crt);
+		List<Course> courses = criteria.list();
+		session.close();
+		return courses;
+	}
 
 	public List<Course> getAllCourses() {
 		Session session = sessionFactory.openSession();
@@ -62,5 +75,6 @@ public class CourseDAOImpl implements CourseDAO {
 		session.close();
 		return course;
 	}
+
 
 }

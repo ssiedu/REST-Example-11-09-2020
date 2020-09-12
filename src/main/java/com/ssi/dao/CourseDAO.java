@@ -10,4 +10,6 @@ public interface CourseDAO {
 	public Course searchCourseById(int code) ;
 	public Course deleteCourse(int code) ;
 	public List<Course> getAllCourses();
+	public List<Course> getCourseInFeesRange(int low, int high);
+	
 }

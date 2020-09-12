@@ -10,4 +10,5 @@ public interface CourseService {
 	public Course searchCourseById(int code);
 	public List<Course> getAllCourses();
 	public Course deleteCourse(int code);
+	public List<Course> getCoursesInFeesRange(int low,int high);
 }
