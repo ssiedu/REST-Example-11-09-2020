@@ -9,6 +9,12 @@
 	<name>REST-Example Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
+<!-- https://mvnrepository.com/artifact/org.json/json -->
+<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20200518</version>
+</dependency>
 
 
 		<dependency>
