@@ -3,6 +3,7 @@ package com.ssi.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +22,12 @@ public class CourseController {
 	@Autowired
 	private CourseService service;
 	
+	//for removing a course through its id
+	
+	@DeleteMapping(value="{code}", produces="application/json")
+	public Course removeCourse(@PathVariable("code") int code) {
+		return service.deleteCourse(code);
+	}
 	
 	//service for adding a resource (insertion)
 	
@@ -33,7 +40,7 @@ public class CourseController {
 	
 	@PutMapping(produces="application/json", consumes="application/json")
 	public Course updatingCourse(@RequestBody Course course) {
-			return service.saveCourse(course);
+			return service.updateCourse(course);
 	}
 	
 	@GetMapping(value="json/all", produces="application/json")
